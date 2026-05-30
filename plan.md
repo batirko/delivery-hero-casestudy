@@ -16,6 +16,13 @@ Claude generated.
 
 **Still to do:** Vitalii writes the actual "Position the Problem" section in `output.md`.
 
+**Must establish all three problem axes (the red thread for the whole doc):**
+1. No golden path + safe hatchway → fragmentation, IP exposure, no network effect
+2. No enablement path → usage high (76%), value low (41%), skill gap (29%) is the real bottleneck
+3. No feedback loop → leadership can't steer, can't prove, can't improve
+
+The opening should make clear: this is not a tool problem, it's a system problem.
+
 ---
 
 ## Step 2 — Vendor Evaluation Framework
@@ -26,11 +33,14 @@ Criteria to define and weight (Acme context):
 - Efficacy / model quality for the actual stacks in use
 - Adoption inertia — what's already working for which teams
 - Cost / budget clarity
-- Visibility / telemetry — can we measure impact?
+- Visibility / telemetry — can we measure impact? (connects directly to feedback loop pillar; weight this explicitly, don't bury it)
 - IDE / workflow integration breadth
 - Agentic capabilities (forward-looking, given the VP's "coherent strategy" ask)
+- Enablement ecosystem — does the vendor support training, usage guidance, prompt libraries? (connects to enablement pillar)
 
 Apply to: Gemini Code Assist, Claude Code, GitHub Copilot, Cursor. Make a recommendation.
+
+**Weight justification must connect back to the three problem axes** — e.g. telemetry is weighted highly because without it the feedback loop problem persists regardless of which tool wins.
 
 **Done when:** Framework is defensible, weights are justified by Acme context, recommendation is clear (not "it depends").
 
@@ -39,21 +49,21 @@ Apply to: Gemini Code Assist, Claude Code, GitHub Copilot, Cursor. Make a recomm
 ## Step 3 — Strategy
 **What this produces:** The "how" — adoption, enablement, handling existing users, success metrics.
 
-Sub-sections:
-- Driving adoption among ~3,700 non-users (behaviour change, not just rollout)
-- Handling the existing fragmented base (Gemini happy, Claude Code growing — pragmatism over policy)
-- Enablement + training approach (close the 29%→>50% "know how to use it" gap)
-- Success metrics (what does "working" look like in 3/6/12 months)
+Sub-sections (ordered by weight — enablement is the centrepiece, not a footnote):
+- **Enablement + training approach** ← heaviest section; this is the primary differentiator from a generic "pick a tool" answer. Must go beyond "run workshops." Concrete: what does good look like, how do you build fluency at scale, what are the forcing functions. Target: 29% → majority know how to use it well.
+- Driving adoption among ~3,700 non-users (behaviour change, not just access; address mobile stack gap explicitly)
+- Handling the existing fragmented base (Gemini happy, Claude Code growing — pragmatism over policy; golden path + hatchway model)
+- Success metrics (feedback loop pillar: what telemetry, what thresholds, 3/6/12 month view)
 
-**Done when:** Clear POV per sub-section; no generic platitudes; developer empathy visible.
+**Done when:** Clear POV per sub-section; no generic platitudes; developer empathy visible. Enablement section must be substantively longer/deeper than vendor discussion.
 
 ---
 
 ## Step 4 — Risks & Trade-offs
 **What this produces:** Honest acknowledgement of what could go wrong, and explicit "not doing" list.
 
-- Biggest risks in the recommended approach
-- What you're explicitly NOT doing, and why
+- Biggest risks in the recommended approach. Lead with: solving the golden path without solving enablement still yields low value — tool consolidation is necessary but not sufficient.
+- What you're explicitly NOT doing, and why (e.g. full consolidation to one tool, big-bang rollout, productivity measurement before tooling is stable)
 
 **Done when:** Risks are specific (not generic); the "not doing" list shows prioritisation judgment.
 
