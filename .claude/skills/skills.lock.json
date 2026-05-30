@@ -1,0 +1,25 @@
+{
+  "version": "1.0",
+  "skills": {
+    "product-prioritization": {
+      "name": "product-prioritization",
+      "description": "Product strategy and feature prioritization — score features by user demand evidence, effort (human vs AI-assisted), strategic alignment, and market signal. Anti-sycophantic forcing questions to cut through opinion.",
+      "source_url": "https://github.com/nearai/ironclaw/tree/staging/skills/product-prioritization",
+      "installed_at": "2026-04-30T08:45:10.369887+00:00",
+      "updated_at": "2026-04-30T08:45:10.369887+00:00",
+      "version": "0.1.0",
+      "files_hash": "sha256:92431a2dc15ad8b2561810ec848c3bc35b3d7e08ffb271030858826998385331",
+      "file_count": 1
+    },
+    "pm-career-interview": {
+      "name": "pm-career-interview",
+      "description": "PM interview drill partner. Runs mock interviews, teaches the right framework (CIRCLES, AARM, DIGS, STAR, Fermi) for each question type, and drills through a ~500-question bank from Aakash Gupta's cheat sheets (behavioral, product design, strategy, metrics, technical, leadership). Use for PM interview prep, mock interviews, drilling specific question types, or building a behavioral story bank. Triggers: 'PM interview prep', 'mock interview', 'drill me on', 'CIRCLES', 'AARM', 'DIGS', 'product design question', 'behavioral interview', 'metrics interview', 'product strategy interview'. For resume reviews, career direction, or breaking into PM, use the pm-career-coach skill instead.",
+      "source_url": "https://github.com/no-session/claude-code-skills/tree/main/skills/pm-career-interview",
+      "installed_at": "2026-04-30T08:45:41.674287+00:00",
+      "updated_at": "2026-04-30T08:45:41.674287+00:00",
+      "version": null,
+      "files_hash": "sha256:c1c29e781a3eb58bea165684c2f81f2659575ee7dba93ab45e5c92f7b3527295",
+      "file_count": 8
+    }
+  }
+}

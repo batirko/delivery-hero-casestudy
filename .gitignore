@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+dist/
+build/
+__pycache__/
+*.pyc
+
+# Env / secrets
+.env
+.env.*
+*.key
+*.pem
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.log
+
+# Local-only, do not publish
+*-private*
+interview-notes.md
+
+# Keep folder placeholders
+!**/.gitkeep

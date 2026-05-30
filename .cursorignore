@@ -1,0 +1,19 @@
+# Privacy: keep personal/sensitive and interview-confidential material out of AI tooling context
+
+**/*-private/
+**/*-private*
+**/profile-private/
+**/outputs-private/
+
+# Local env / secrets
+.env
+.env.*
+*.key
+*.pem
+
+# Personal notes that shouldn't leak into AI context
+interview-notes.md
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db

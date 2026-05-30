@@ -1,0 +1,15 @@
+---
+description: Delivery Hero case study workspace rules and conventions
+globs:
+alwaysApply: true
+---
+
+# Case Study Workspace Rules
+
+- This is the Delivery Hero job-application case study. Optimize for clarity, correctness, and senior-level signal.
+- DATA INTEGRITY: never fabricate/estimate numbers; cite sources with URLs. See `CLAUDE.md`.
+- Read `task-context/index.md` and `references.md` before substantive work.
+- `presentation.md` is the single deliverable; keep WIP in `analysis/` and `work.md`.
+- Track progress in `plan.md` / `todo.md`; verify with `audit.md`.
+- Respect privacy: don't surface or commit `*-private*`, secrets, or interview-confidential notes.
+- Markdown, kebab-case filenames, dates as YYYY-MM-DD.
