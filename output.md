@@ -143,22 +143,10 @@ The framing matters: a significant share of engineers currently outside the trac
 
 ### Explicit trade-offs: what we are not doing
 
-| Not doing | Why |
-| --------- | --- |
-| Full single-tool mandate from day one | Forces underground adoption; destroys goodwill with engineers who chose their tools for real reasons |
-| Big-bang rollout to all ~5,000 engineers | Creates unmanageable support load; no signal on what's working before it's too late to course-correct |
-| Productivity measurement before tooling is stable | Measuring during a transition produces noise, not signal; establishes a false baseline |
-| Banning Cursor outright | Generates resentment without addressing the underlying need; the Hatchway handles it cleanly |
-| Building custom self-hosted tooling | Engineering cost and velocity risk with no clear advantage over the recommended tiers |
-
----
-
-## Appendix
-
-### AI prompts log
-
-[Prompts used during case study preparation — evaluated separately per brief instructions.]
-
-### Supporting data
-
-[All figures sourced from the Acme Inc case study brief, n=180 survey. No external numbers used unless cited.]
+| Not doing                                         | Why                                                                                                   |
+| ------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| Full single-tool mandate from day one             | Forces underground adoption; destroys goodwill with engineers who chose their tools for real reasons  |
+| Big-bang rollout to all ~5,000 engineers          | Creates unmanageable support load; no signal on what's working before it's too late to course-correct |
+| Productivity measurement before tooling is stable | Measuring during a transition produces noise, not signal; establishes a false baseline                |
+| Banning Cursor outright                           | Generates resentment without addressing the underlying need; the Hatchway handles it cleanly          |
+| Building custom self-hosted tooling               | Engineering cost and velocity risk with no clear advantage over the recommended tiers                 |
