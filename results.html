@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  :root { --ink:#1a1a1a; --muted:#555; --rule:#d9d9d9; --accent:#0b4f6c; --thead:#f2f4f5; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    color: var(--ink); font-size: 10.5pt; line-height: 1.5;
+    max-width: 760px; margin: 0 auto; padding: 0;
+  }
+  h1 { font-size: 21pt; line-height: 1.2; margin: 0 0 4px; letter-spacing: -0.2px; }
+  h2 { font-size: 14pt; margin: 22px 0 8px; padding-bottom: 4px; border-bottom: 2px solid var(--rule); }
+  h3 { font-size: 11.5pt; margin: 16px 0 4px; color: var(--accent); }
+  p { margin: 6px 0; }
+  ul { margin: 6px 0; padding-left: 20px; }
+  li { margin: 3px 0; }
+  strong { font-weight: 650; }
+  hr { border: none; border-top: 1px solid var(--rule); margin: 18px 0; }
+  table { border-collapse: collapse; width: 100%; margin: 10px 0; font-size: 9.5pt; }
+  th, td { border: 1px solid var(--rule); padding: 5px 8px; text-align: left; vertical-align: top; }
+  thead th { background: var(--thead); font-weight: 650; }
+  tbody tr:nth-child(even) { background: #fafbfb; }
+  td:nth-child(n+2) { white-space: normal; }
+  h2, h3 { break-after: avoid; }
+  table, tr { break-inside: avoid; }
+</style>
+</head>
+<body>
+<h1>A Strategy for AI-Assisted Coding at Acme</h1>
+<h2>TL;DR</h2>
+<p>AI coding tools have spread across Acme&#39;s engineering org for 18 months. Adoption is fast, value is low, and impact is invisible. The problem isn&#39;t which tool to pick. It&#39;s that there&#39;s no system around the tools at all.</p>
+<p>Three things are broken at once:</p>
+<ul>
+<li><strong>No golden path.</strong> Four-plus toolchains, no approved procurement route, and proprietary code likely flowing through consumer LLM accounts right now.</li>
+<li><strong>No enablement.</strong> 76% use AI daily, but only 29% know how to use it well. Value is gated by fluency, not access.</li>
+<li><strong>No feedback loop.</strong> Leadership can&#39;t see what works, for whom, or whether the spend returns anything.</li>
+</ul>
+<p>The recommendation is a two-tier governed workspace: <strong>GitHub Copilot Enterprise</strong> as the platform layer (telemetry, security, full IDE breadth including mobile), with <strong>Claude Code</strong> as the named agentic tier for complex multi-step work, plus a governed <strong>Hatchway</strong> for frontier tools. The tools solve different problems; the governance layer is one. A portfolio differs from a pile of subscriptions by exactly one thing: a single control plane (one way to provision, shared telemetry, one golden path).</p>
+<p>The lasting asset isn&#39;t the tool choice. It&#39;s the platform layer and the internal fluency corpus built on top of it (prompt libraries, MCP servers, scaffolds, a champion network). Those survive any vendor swap. So: invest in enablement in parallel, instrument from day one, and measure fluency rate and the productivity signal rather than licence count.</p>
+<hr>
+<h2>1. The Problem</h2>
+<h3>Where AI coding sits</h3>
+<p>The developer journey runs Discover → Plan → Code → Validate → Deploy → Operate. AI coding tools live mainly at <strong>Code</strong>: completion, agentic generation, refactoring, inline Q&amp;A. Their leverage spills both ways, though. A well-prompted agent speeds up ticket decomposition (Plan) and cuts review cycles (Validate) by producing better first drafts.</p>
+<p>So the frame isn&#39;t &quot;IDE productivity.&quot; It&#39;s <strong>engineering velocity</strong>: how fast working software moves from intent to production. AI is a multiplier on the most time-intensive stage of that chain.</p>
+<h3>Three breakdowns, all at once</h3>
+<p>Eighteen months of uncoordinated adoption produced a specific failure: the org bought adoption it can&#39;t convert and can&#39;t see that it failed. Three gaps cause it, and they reinforce each other.</p>
+<p><strong>1. No golden path.</strong> No standard, no central guidance, no approved way to buy. Tools spread by team preference and expense claims, leaving at least four toolchains. With only ~900 engineers on any trackable tool and 76% reporting daily AI use, a large group is almost certainly routing proprietary code through consumer-grade LLM interfaces. IP exposure isn&#39;t a future risk. It&#39;s happening now.</p>
+<p><strong>2. No enablement.</strong> Usage is high (76% daily), value capture is low (41% report meaningful gains, 29% feel they use their tool well). That&#39;s a fluency gap, not a tool-quality gap. Picking one vendor doesn&#39;t touch it. The same deficit persists under any tooling decision.</p>
+<p><strong>3. No feedback loop.</strong> Nothing measures adoption, usage quality, or impact with any confidence. Leadership can&#39;t tell which tools work or whether the investment returns anything, so the strategy can&#39;t self-correct and the spend can&#39;t be defended. This is the same gap as fragmentation, not a separate one: fragmentation is what makes measurement impossible. Consolidation&#39;s real prize isn&#39;t fewer tools. It&#39;s the measurement surface that makes every later decision improvable.</p>
+<p>The three feed each other. Fragmentation blocks measurement. Weak measurement makes the enablement case hard to fund. Weak enablement keeps value low, which erodes confidence in the whole programme.</p>
+<p>There&#39;s a fourth dynamic underneath. Speeding up the Code stage doesn&#39;t automatically raise velocity; it can push cost downstream. If AI code is faster to write but harder to review (only 33% feel equipped to validate AI output), Validate clogs and the net gain disappears. So success metrics have to move two baselines: the 41% productivity number <strong>and</strong> the 33% quality-confidence number, not just fluency and seat count.</p>
+<hr>
+<h2>2. Vendor Evaluation</h2>
+<h3>Criteria and weights</h3>
+<p>Six criteria, weighted by the three breakdowns above and the mandate of the role.</p>
+<table>
+<thead>
+<tr>
+<th>Criterion</th>
+<th>Weight</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Security / IP governance</td>
+<td>20%</td>
+<td>A strategy that leaks proprietary code isn&#39;t a strategy. Data residency, IP protection, enterprise controls are the floor; depth differentiates.</td>
+</tr>
+<tr>
+<td>Enablement &amp; ecosystem</td>
+<td>20%</td>
+<td>29% fluency is the binding constraint. Tool choice without enablement changes nothing.</td>
+</tr>
+<tr>
+<td>Agentic capability</td>
+<td>20%</td>
+<td>The north star. Inline completion is table stakes; multi-step agent loops, MCP, CLI composability are the forward vector.</td>
+</tr>
+<tr>
+<td>Visibility / telemetry</td>
+<td>15%</td>
+<td>The feedback loop is broken. No instrumentation, no investment case.</td>
+</tr>
+<tr>
+<td>IDE breadth</td>
+<td>10%</td>
+<td>The real mix includes Xcode and Android Studio, not just VS Code. Mobile is currently excluded.</td>
+</tr>
+<tr>
+<td>Adoption inertia</td>
+<td>15%</td>
+<td>Displacing tools engineers chose creates friction. Riding existing momentum is cheaper and faster.</td>
+</tr>
+</tbody></table>
+<h3>Scorecard</h3>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Security</th>
+<th>Enablement</th>
+<th>Agentic</th>
+<th>Visibility</th>
+<th>IDE</th>
+<th>Adoption</th>
+<th><strong>Weighted</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>GitHub Copilot Enterprise</td>
+<td>5</td>
+<td>4</td>
+<td>3</td>
+<td>5</td>
+<td>5</td>
+<td>3</td>
+<td><strong>4.10</strong></td>
+</tr>
+<tr>
+<td>Gemini Code Assist</td>
+<td>5</td>
+<td>4</td>
+<td>2</td>
+<td>3</td>
+<td>3</td>
+<td>5</td>
+<td><strong>3.70</strong></td>
+</tr>
+<tr>
+<td>Claude Code</td>
+<td>4</td>
+<td>3</td>
+<td>5</td>
+<td>2</td>
+<td>2</td>
+<td>4</td>
+<td><strong>3.50</strong></td>
+</tr>
+<tr>
+<td>Cursor (Enterprise)</td>
+<td>3</td>
+<td>2</td>
+<td>5</td>
+<td>2</td>
+<td>3</td>
+<td>2</td>
+<td><strong>2.90</strong></td>
+</tr>
+</tbody></table>
+<h3>Recommendation: two tiers plus a Hatchway</h3>
+<p><strong>Tier 1, platform layer: GitHub Copilot Enterprise.</strong> It wins on the three criteria tied to our breakdowns: best telemetry (Copilot Metrics API fixes the feedback loop), widest IDE coverage including Xcode (fixes mobile exclusion), and enterprise security at scale. Its multi-model support matters most: Claude and Gemini models are selectable in-IDE, so the ~400 Gemini-happy backend engineers keep their preferred model. That&#39;s the migration unlock (validate parity on the highest-value flows before migrating). Gemini&#39;s higher raw adoption (400 vs 120) is real, but it&#39;s preserved here, not lost. The 4.10-vs-3.70 gap comes from visibility, IDE breadth, and agentic trajectory.</p>
+<p><strong>Tier 2, agentic layer: Claude Code (Anthropic Enterprise).</strong> Highest agentic score (5/5), and already the tool platform and frontend engineers reached for on hard tasks. A model picker isn&#39;t an agent harness. Claude Code is a CLI agent loop with MCP-native composability: filesystem access, multi-step orchestration, tool use across the repo. Copilot&#39;s picker exposes the same weights; it doesn&#39;t expose that runtime. The move is to centralise the existing ~300 users under an Anthropic Enterprise contract (central billing, API-level usage tracking, admin controls), not to change the tool. Organic adoption already passed the product-market-fit test for free. These users also become the main internal enablement resource for everyone else, and the tier directly serves the role&#39;s mandate to build next-gen agentic workspaces.</p>
+<p><strong>Tier 3, the Hatchway: a governed exception process.</strong> A named route for anything outside Tiers 1 and 2. Current candidates: Cursor (~60), untracked self-hosted or open-source tools, and future frontier tools. Entry requires a passed security review, wired-up telemetry, a budget-capped 90-day trial, and a named engineering lead. Anything operating outside the Hatchway is shadow IT.</p>
+<hr>
+<h2>3. Strategy</h2>
+<h3>Enablement at scale</h3>
+<p>29% fluency is the constraint, and it survives any tool decision. Fix the golden path without fixing fluency and you get a governed version of the same low-value state.</p>
+<p><strong>Infrastructure.</strong> A self-service IDP page is the default entry point for anyone onboarding to AI tooling: new hires, teams adopting a first tool, and every Hatchway request. Minimum version: a curated guide pointing to approved tools, prompt libraries, and MCP configs. Target version: self-service provisioning by template (tool access, pre-set IDE config, prompts for the team&#39;s stack). Where there&#39;s no IDP, a curated repo is the fallback. Either way, a skill/MCP layer exposes the same resources inside the IDE or CLI, so there&#39;s no context switch to a browser. The forcing function is provisioning itself: when an engineer gets access, they get pre-configured settings, a prompt pack for their stack, and the right MCP servers on day one. You raise fluency by shipping it, not by scheduling training.</p>
+<p><strong>Social.</strong> Sharing sessions, best-practice guides, and internal case studies are supporting signal, not the main mechanism. Claude Code power users, recruited as advocates, pull adoption through peer demonstration instead of a top-down mandate.</p>
+<p>Platform engineering owns this. The PM sets direction, defines the resource taxonomy, and owns the metrics; platform engineers build and run the infrastructure.</p>
+<h3>Reaching the ~3,700 non-users</h3>
+<p>The population isn&#39;t homogeneous. It splits into three groups: never had access or never tried; tried and bounced (friction, poor fit, no help); and using ungoverned AI right now through personal accounts. The third group is urgent because it&#39;s already leaking IP. For them the goal is migration from ungoverned to governed, not recruitment from zero.</p>
+<p>Detection comes before rollout: expense audits (personal AI subscriptions on company cards), egress monitoring for known LLM endpoints, and a targeted follow-up survey to the 76%-daily cohort. Without a detection signal the &quot;3,700&quot; is decoration; you can&#39;t run a funnel you can&#39;t see into.</p>
+<p>Rollout sequence: power users and early adopters first (confirm the governed platform doesn&#39;t add friction where value already exists), then low-satisfaction current users (the highest-value conversions), then full rollout with comms.</p>
+<p><strong>Mobile engineers.</strong> Previously locked out by tooling gaps. Copilot&#39;s Xcode and Android Studio support opens a path, but mobile is its own workstream, not a vendor-selection fix. Context quality and custom MCP for Swift/Kotlin need deliberate investment. For an ecommerce and delivery company whose app is the primary revenue surface, treating mobile AI tooling as an afterthought is a business risk. So the IDP ships mobile resources from day one (Swift and Kotlin prompt packs, mobile testing patterns, the right MCP configs), and the behaviour-change hook is a peer showcase: a mobile engineer demoing a real Xcode workflow. Mobile joins the same rollout cohort but is tracked as its own segment to confirm the resources land.</p>
+<h3>The existing fragmented base</h3>
+<p><strong>Before the platform is ready.</strong> Send policy comms to all current AI users: a clear, short note on what not to paste into any AI tool while governance is stood up. Cheap, immediate, and aimed straight at the known IP window.</p>
+<p><strong>Gemini (~400).</strong> Frame migration to Copilot around the org win: standard tooling, consolidated telemetry, network effects from a shared platform. The reassurance is practical: Copilot is multi-model, so they keep their model; validate the top Gemini Code Assist flows for parity first. Only the governance around the model changes.</p>
+<p><strong>Claude Code (~300).</strong> Organic adopters on the highest-capability tier. Not a problem to suppress, the primary enablement resource. Centralise under Anthropic Enterprise (billing, admin, API-level tracking) and run showcase sessions where they demo their setups. Advocates, not detractors.</p>
+<p><strong>Cursor (~60).</strong> Not banned, removed from the golden path. Access goes through the Hatchway: state the case, pass security review, 90-day capped trial, named lead. Same model as any tool outside the two tiers.</p>
+<h3>Measuring success</h3>
+<p><strong>Prerequisite (days 0–60).</strong> Wire up the Copilot Metrics API and set a PR cycle-time baseline before the first wave. No baseline, no measurable 12-month signal. This is a sequencing dependency, not a nice-to-have.</p>
+<table>
+<thead>
+<tr>
+<th>Horizon</th>
+<th>Target</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>3 months</td>
+<td>No usage regression among active users. ≥50% of active users migrated to the governed platform. Telemetry live and reporting.</td>
+</tr>
+<tr>
+<td>6 months</td>
+<td>Fluency measured via pulse survey against the 29% baseline; target a directional lift. Usage analytics (feature depth, range of capabilities used) as the behavioural check on self-report. Neither alone suffices.</td>
+</tr>
+<tr>
+<td>12 months</td>
+<td>Higher feature velocity without quality regression: DORA lead time for changes and change failure rate against baseline, with PR cycle time as supporting signal. These are proxies and need paired qualitative input (EM surveys) to read correctly. PR volume alone is invalid; AI inflates it trivially.</td>
+</tr>
+</tbody></table>
+<p>Engineering leadership owns the programme. The PM drives execution: roadmap, resource taxonomy, metric definitions, stakeholder reporting.</p>
+<hr>
+<h2>4. Risks &amp; Trade-offs</h2>
+<p><strong>Consolidation without enablement still yields low value.</strong> The vendor pick fixes governance and measurement. It doesn&#39;t move 29% fluency. Delay or deprioritise enablement and you get a better-instrumented version of the same low-value state.</p>
+<p><strong>Shadow IT during transition.</strong> Between the policy comms and full platform readiness, people keep using ungoverned tools. The interim comms reduces this; it doesn&#39;t end it. Treat it as a known, time-boxed exposure.</p>
+<p><strong>Mobile exclusion at launch.</strong> If the IDP ships without Swift/Kotlin packs and mobile-tested MCP, mobile engineers adopt generic patterns or nothing. The mobile pack is a launch dependency.</p>
+<p><strong>EM resistance to instrumentation.</strong> Telemetry can read as surveillance. Instrument tools, not individuals; report at the aggregate team level. Set that framing early or lose EM cooperation.</p>
+<p><strong>GCP procurement relationship.</strong> Deprioritising Gemini Code Assist may be commercially sensitive if Delivery Hero has a strategic GCP relationship. The recommendation doesn&#39;t drop Gemini; it consolidates under Copilot while keeping Gemini model access in-IDE. Make that explicit in any vendor conversation to avoid a procurement escalation.</p>
+<p><strong>Budget uncertainty.</strong> Two tiers mean concurrent contract costs. Mitigation is phased contracting: Copilot Enterprise first (broadest coverage, highest telemetry value), Anthropic Enterprise once the pilot proves out. Provision seats against adoption cohorts, not in bulk, so spend tracks value. That turns budget uncertainty into a designed lever: start with the known active base (~700), prove the signal, expand. Exact sequencing depends on budget clarity the brief doesn&#39;t give.</p>
+<h3>What we&#39;re explicitly not doing</h3>
+<table>
+<thead>
+<tr>
+<th>Not doing</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Standardising on Gemini despite top adoption</td>
+<td>Wins adoption inertia; loses on visibility, Xcode/mobile, and agentic trajectory.</td>
+</tr>
+<tr>
+<td>Full single-tool mandate from day one</td>
+<td>Forces underground adoption; burns goodwill with engineers who chose tools for real reasons.</td>
+</tr>
+<tr>
+<td>Keeping Cursor as a named tier</td>
+<td>Security risk, weakest telemetry, excludes non-VS Code engineers at scale. The Hatchway covers the legitimate need.</td>
+</tr>
+<tr>
+<td>Big-bang rollout to all ~5,000</td>
+<td>Unmanageable support load; no signal on what works before it&#39;s too late to correct.</td>
+</tr>
+<tr>
+<td>Measuring productivity before tooling is stable</td>
+<td>Measuring mid-transition produces noise and a false baseline.</td>
+</tr>
+<tr>
+<td>Building custom self-hosted tooling</td>
+<td>Engineering cost and velocity risk with no clear edge over the recommended tiers.</td>
+</tr>
+</tbody></table>
+
+</body>
+</html>

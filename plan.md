@@ -83,7 +83,7 @@ Sub-sections (ordered by weight — enablement is the centrepiece, not a footnot
 - [ ] Red thread check: every section follows causally from the previous
 - [ ] All 4 task questions answered
 - [ ] No fabricated numbers; all data from the brief
-- [ ] AI prompts log compiled (separate appendix or section)
+- [/] AI prompts log setup (prompts.md created, template defined)
 - [ ] Final read: senior, concise, defensible under push-back
 
 ---

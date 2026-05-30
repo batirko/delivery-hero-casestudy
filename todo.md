@@ -12,6 +12,7 @@ Claude generated.
 - [x] Vendor evaluation — two-tier + Hatchway, ported to `output.md`
 - [ ] Draft Strategy section (Step 3)
 - [ ] Draft Risks & Trade-offs section (Step 4)
+- [/] AI prompts log setup (prompts.md created, template defined)
 - [ ] Final assembly + polish (Step 5)
 - [ ] Polish + audit
 
