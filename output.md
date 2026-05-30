@@ -4,7 +4,7 @@ Claude generated.
 
 ## TL;DR
 
-AI coding tools have spread organically across Acme's engineering org for 18 months — fast adoption, low value, invisible impact. The problem is not which tool to pick; it is the absence of a system. Three axes are broken simultaneously: no standardised golden path (fragmentation, active IP exposure), no enablement infrastructure (76% daily usage but only 29% fluency), and no feedback loop (leadership cannot steer or prove ROI). The recommendation is a structured platform approach — consolidate onto a primary tool with a governed hatchway, invest heavily in enablement before and alongside rollout, and instrument everything from day one. Success is measured not by license count but by the fluency rate and the productivity signal.
+AI coding tools have spread organically across Acme's engineering org for 18 months — fast adoption, low value, invisible impact. The problem is not which tool to pick; it is the absence of a system. Three axes are broken simultaneously: no standardised golden path (fragmentation, active IP exposure), no enablement infrastructure (76% daily usage but only 29% fluency), and no feedback loop (leadership cannot steer or prove ROI). The recommendation is a two-tier agentic workspace strategy: GitHub Copilot Enterprise as the governed platform layer (telemetry, security, full IDE breadth including mobile), with Claude Code as the named agentic tier for complex multi-step workflows — plus a governed Hatchway for frontier tools. Invest heavily in enablement in parallel; instrument everything from day one. Success is measured not by licence count but by fluency rate and the productivity signal.
 
 ---
 
@@ -34,11 +34,52 @@ These three axes are mutually reinforcing. Fragmentation makes measurement harde
 
 ### Evaluation criteria and weighting
 
-[Framework table: criteria, weights, justification tied to the three problem axes. Apply to Gemini Code Assist, Claude Code, GitHub Copilot, Cursor. Clear recommendation with rationale.]
+Six criteria, weighted by Acme's three system breakdowns and the strategic mandate of the role.
 
-### Recommendation
+| Criterion | Weight | Why this weight |
+|-----------|--------|-----------------|
+| Security / IP Governance | 20% | Hard gate. Any tool handling internal code must meet data residency and IP protection requirements. Non-negotiable. |
+| Enablement & Ecosystem | 20% | 29% fluency is the binding constraint. Weight reflects that tool selection without structured enablement changes nothing. |
+| Agentic Capability | 20% | The strategic north star. Inline completion is table stakes; multi-step agent loops, MCP integration, and CLI composability are the forward vector. |
+| Visibility / Telemetry | 15% | The feedback loop is broken. Without instrumentation, the investment case cannot be made or defended. |
+| IDE Integration & Breadth | 10% | Real mix includes Xcode (iOS) and Android Studio — not just VS Code. Mobile teams currently excluded entirely. |
+| Adoption Inertia | 15% | Displacing tools engineers organically chose creates friction. Leveraging existing momentum is faster and cheaper. |
 
-[Single, defended recommendation. Not "it depends."]
+### Scorecard
+
+| Tool | Security | Enablement | Agentic | Visibility | IDE Breadth | Adoption | **Weighted** |
+|------|----------|------------|---------|------------|-------------|----------|-------------|
+| GitHub Copilot Enterprise | 5 | 4 | 3 | 5 | 5 | 3 | **4.10** |
+| Gemini Code Assist | 5 | 4 | 2 | 3 | 3 | 5 | **3.70** |
+| Claude Code | 4 | 3 | 5 | 2 | 2 | 4 | **3.50** |
+| Cursor (Enterprise) | 3 | 2 | 5 | 2 | 3 | 2 | **2.90** |
+
+### Recommendation: Two-Tier Agentic Workspace + Hatchway
+
+**Tier 1 — Governed Platform Layer: GitHub Copilot Enterprise**
+
+Copilot wins on the three criteria that directly address our system breakdowns: best-in-class telemetry (Copilot Metrics API, solves the feedback loop), widest IDE breadth including Xcode (addresses mobile exclusion), and enterprise security at scale. Critically, Copilot's multi-model support — Claude and Gemini models selectable in-IDE — means the 400 Gemini-happy backend engineers don't lose their preferred model; they change their contract, not their workflow. This is the migration unlock.
+
+Gemini's higher adoption (400 vs. 120) is real but is preserved, not lost, under this approach. The gap between Copilot (4.10) and Gemini (3.70) is driven by visibility, IDE breadth, and agentic trajectory — all three of which compound over time.
+
+**Tier 2 — Agentic Power Layer: Claude Code (Anthropic Enterprise)**
+
+Claude Code scored highest on agentic capability (5/5) and is already the tool platform and frontend engineers chose organically for complex tasks. The strategy would be weaker if it treated this as a problem to suppress. The move: centralise under an Anthropic Enterprise contract (centralised billing, API-level usage tracking, admin controls) rather than changing the tool. Organic adoption is a free product-market fit signal — it already passed.
+
+Claude Code as the named agentic tier directly activates the strategic mandate: building next-gen agentic workspaces. These users also become the primary internal enablement resource for the 4,100.
+
+**Tier 3 — The Hatchway: Governed Exception Process**
+
+A named, governed process for tools outside Tiers 1 and 2. Current candidates: Cursor (~60 users), any self-hosted/open-source alternatives currently untracked, and future frontier tools as they mature. Entry requires: security review passed, telemetry wired up, budget-capped 90-day trial, named engineering lead accountable. Tools operating outside the Hatchway are treated as ungoverned shadow IT.
+
+### What we are not doing
+
+| Not doing | Why |
+|-----------|-----|
+| Standardising on Gemini despite highest adoption | Solves adoption inertia; fails on visibility, Xcode/mobile, and agentic trajectory |
+| Immediate full single-tool mandate | Forces underground adoption; destroys goodwill with the 700 users who chose their tools for real reasons |
+| Keeping Cursor as a named tier | Security review risk, weakest telemetry, excludes non-VS Code engineers at unacceptable scale |
+| Building custom self-hosted tooling | Engineering cost and velocity risk with no clear advantage over the above |
 
 ---
 
