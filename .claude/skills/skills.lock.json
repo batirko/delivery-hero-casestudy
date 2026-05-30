@@ -20,6 +20,16 @@
       "version": null,
       "files_hash": "sha256:c1c29e781a3eb58bea165684c2f81f2659575ee7dba93ab45e5c92f7b3527295",
       "file_count": 8
+    },
+    "review-strategy": {
+      "name": "review-strategy",
+      "description": "Three-perspective product strategy review of teardowns, structural analyses, and strategy documents. Critiques output quality against the structural strategy framework.",
+      "source_url": "https://github.com/nickgiro/claude-skills/tree/main/review-strategy",
+      "installed_at": "2026-05-30T13:17:15.488035+00:00",
+      "updated_at": "2026-05-30T13:17:15.488035+00:00",
+      "version": null,
+      "files_hash": "sha256:4ea519798353700897a6bd39c50110f3d786cb9d59a6f7c9cb3ba3c6d23d64e7",
+      "file_count": 1
     }
   }
 }
